@@ -7,7 +7,9 @@
 *.sln.docstates
 
 # Visual Studio 2022 cache/options directory
+NetCoreWebApi/.vs
 .vs/
+/.vs
 
 # Build results
 
