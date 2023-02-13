@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Common.Northwind.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Repository.Northwind;
