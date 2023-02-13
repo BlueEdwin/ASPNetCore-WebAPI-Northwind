@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Repository.Northwind;
+namespace Common.Northwind.Entities;
 
-public partial class Product
+public partial class Alphabetical_list_of_product
 {
     public int ProductID { get; set; }
 
@@ -25,9 +25,5 @@ public partial class Product
 
     public bool Discontinued { get; set; }
 
-    public virtual Category? Category { get; set; }
-
-    public virtual ICollection<Order_Detail> Order_Details { get; } = new List<Order_Detail>();
-
-    public virtual Supplier? Supplier { get; set; }
+    public string CategoryName { get; set; } = null!;
 }

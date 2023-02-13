@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Repository.Northwind;
+namespace Common.Northwind.Entities;
 
-public partial class Orders_Qry
+public partial class Order
 {
     public int OrderID { get; set; }
 
@@ -33,15 +33,11 @@ public partial class Orders_Qry
 
     public string? ShipCountry { get; set; }
 
-    public string CompanyName { get; set; } = null!;
+    public virtual Customer? Customer { get; set; }
 
-    public string? Address { get; set; }
+    public virtual Employee? Employee { get; set; }
 
-    public string? City { get; set; }
+    public virtual ICollection<Order_Detail> Order_Details { get; } = new List<Order_Detail>();
 
-    public string? Region { get; set; }
-
-    public string? PostalCode { get; set; }
-
-    public string? Country { get; set; }
+    public virtual Shipper? ShipViaNavigation { get; set; }
 }

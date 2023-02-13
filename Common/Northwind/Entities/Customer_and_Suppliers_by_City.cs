@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Repository.Northwind;
+namespace Common.Northwind.Entities;
 
 public partial class Customer_and_Suppliers_by_City
 {
