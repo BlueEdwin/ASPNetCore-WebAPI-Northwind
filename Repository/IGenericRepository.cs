@@ -36,12 +36,30 @@ namespace Repository
         /// 刪除
         /// </summary>
         /// <param name="entity"></param>
-        void Remove(TEntity entity);
+        void Delete(TEntity entity);
 
         /// <summary>
         /// 更新
         /// </summary>
         /// <param name="entity"></param>
         void Update(TEntity entity);
+
+        /// <summary>
+        /// 新增多筆
+        /// </summary>
+        /// <param name="instance"></param>
+        void AddRange(IEnumerable<TEntity> instance);
+
+        /// <summary>
+        /// 更新多筆
+        /// </summary>
+        /// <param name="instance"></param>
+        void UpdateRange(IEnumerable<TEntity> instance);
+
+        /// <summary>
+        /// 刪除多筆
+        /// </summary>
+        /// <param name="instance"></param>
+        void DeleteRange(IEnumerable<TEntity> instance);
     }
 }
