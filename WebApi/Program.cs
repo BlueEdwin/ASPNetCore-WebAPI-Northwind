@@ -13,7 +13,7 @@ builder.Services.AddSwaggerGen();
 
 //³z¹LDependency Injection ³]©w DbContext
 builder.Services.AddControllers();
-builder.Services.AddDbContext<NorthwindContext>(
+builder.Services.AddDbContext<Repository.Northwind.NorthwindContext>(
             options => options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind"))
         );
 

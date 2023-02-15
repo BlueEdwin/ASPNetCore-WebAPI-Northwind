@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repository.Northwind;
 
-public partial class NorthwindContext : DbContext
+public partial class NorthwindContext : DbContext, INorthwindContext
 {
     public NorthwindContext()
     {
