@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace Repository.Northwind
 {
     public interface IUnitOfWork : IDisposable
     {
@@ -13,7 +13,7 @@ namespace Repository
         /// DbContext
         /// </summary>
         DbContext Context { get; }
-        
+
         /// <summary>
         /// Saves the change
         /// </summary>

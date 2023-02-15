@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace Repository.Northwind
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -16,9 +16,9 @@ namespace Repository
         /// Initializes a new instance of the <see cref="UnitOfWork"/> class.
         /// </summary>
         /// <param name="context"></param>
-        public UnitOfWork(DbContext context) 
+        public UnitOfWork(DbContext context)
         {
-            this.Context = context;
+            Context = context;
         }
         public UnitOfWork()
         {
@@ -45,7 +45,7 @@ namespace Repository
         /// <returns></returns>
         public IGenericRepository<TEntity> Repository<TEntity>() where TEntity : class
         {
-            if(_repositories == null)
+            if (_repositories == null)
             {
                 _repositories = new Hashtable();
             }
@@ -69,7 +69,7 @@ namespace Repository
         /// <returns></returns>
         public async Task<int> SaveChangeAsync()
         {
-            return await this.Context.SaveChangesAsync();
+            return await Context.SaveChangesAsync();
         }
         /// <summary>
         /// Dispose
@@ -77,16 +77,16 @@ namespace Repository
         /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
-            if (!this.disposed)
+            if (!disposed)
             {
                 if (disposing)
                 {
-                    this.Context.Dispose();
-                    this.Context = null;
+                    Context.Dispose();
+                    Context = null;
                 }
             }
 
-            this.disposed = true;
+            disposed = true;
         }
     }
 }
