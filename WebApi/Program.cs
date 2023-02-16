@@ -17,9 +17,12 @@ builder.Services.AddDbContext<Repository.Northwind.NorthwindContext>(
             options => options.UseSqlServer(builder.Configuration.GetConnectionString("Northwind"))
         );
 
-//Add repository dependecy injection service
+//Add repository layer dependecy injection service
 builder.Services.AddTransient<Repository.Northwind.INorthwindContext, Repository.Northwind.NorthwindContext>();
 builder.Services.AddTransient<Repository.Northwind.INorthwindUnitOfWork, NorthwindUnitOfWork>();
+
+//Add service layer dependecy injection service
+builder.Services.AddScoped<Service.Northwind.INorthwindService, Service.Northwind.NorthwindService>();
 
 var app = builder.Build();
 
