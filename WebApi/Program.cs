@@ -21,6 +21,8 @@ builder.Services.AddDbContext<Repository.Northwind.NorthwindContext>(
 builder.Services.AddTransient<Repository.Northwind.INorthwindContext, Repository.Northwind.NorthwindContext>();
 builder.Services.AddTransient<Repository.Northwind.INorthwindUnitOfWork, NorthwindUnitOfWork>();
 
+builder.Services.AddAutoMapper(System.AppDomain.CurrentDomain.GetAssemblies());
+
 //Add service layer dependecy injection service
 builder.Services.AddScoped<Service.Northwind.INorthwindService, Service.Northwind.NorthwindService>();
 
