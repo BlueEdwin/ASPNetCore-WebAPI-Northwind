@@ -12,6 +12,8 @@ namespace WebApi.Controllers.Northwind
         {
             //建立 Profile 對照定義
             CreateMap<Common.Northwind.Dtos.ProductDto, WebApi.Controllers.Northwind.ProductViewModel>();
+            CreateMap<WebApi.Controllers.Northwind.QueryEmployeeParameter, Common.Northwind.Dtos.QueryEmployeeSalesDto>();
+            CreateMap<Common.Northwind.Dtos.EmployeeSalesDto, WebApi.Controllers.Northwind.EmployeeSalesViewModel>();
         }
     }
 }

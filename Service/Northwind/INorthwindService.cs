@@ -14,5 +14,11 @@ namespace Service.Northwind
         /// </summary>
         /// <returns></returns>
         IEnumerable<ProductDto> GetProducts();
+        /// <summary>
+        /// 取得員工銷售業績
+        /// </summary>
+        /// <param name="queryParam"></param>
+        /// <returns></returns>
+        IEnumerable<EmployeeSalesDto> GetEmployeeSales(QueryEmployeeSalesDto queryParam);
     }
 }
