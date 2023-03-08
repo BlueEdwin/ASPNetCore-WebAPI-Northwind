@@ -45,5 +45,19 @@ namespace WebApi.Controllers.Northwind
 
             return Json(employeeSalesVM);
         }
+        /// <summary>
+        /// 取得訂單包含訂購的顧客所在地，可觀察各地區產品銷售狀況
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetOrderWithCustomerInfo")]
+        public JsonResult GetOrderWithCustomerInfo()
+        {
+            IEnumerable<OrderWithCustomerInfoDto> orderWithCustomerInfoDtos = _northwindService.GetOrdersWithCustomerInfo();
+
+            IEnumerable<OrderWithCustomerInfoViewModel> orderWCusInfoVM = _mapper.Map<IEnumerable<OrderWithCustomerInfoViewModel>>(orderWithCustomerInfoDtos);
+
+            return Json(orderWCusInfoVM);
+        }
     }
 }

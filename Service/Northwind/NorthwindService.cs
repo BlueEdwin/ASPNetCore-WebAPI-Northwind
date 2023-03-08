@@ -66,5 +66,35 @@ namespace Service.Northwind
                 throw;
             }
         }
+        public IEnumerable<OrderWithCustomerInfoDto> GetOrdersWithCustomerInfo()
+        {
+            IEnumerable<Order> orders = _unitOfWork.Repository<Order>().GetAllAsync().Result;
+
+            IEnumerable<Order_Detail> order_Details = _unitOfWork.Repository<Order_Detail>().GetAllAsync().Result;
+
+            IEnumerable<Product> products = _unitOfWork.Repository<Product>().GetAllAsync().Result;
+
+            IEnumerable<Category> categories = _unitOfWork.Repository<Category>().GetAllAsync().Result;
+
+            IEnumerable<Customer> customers = _unitOfWork.Repository<Customer>().GetAllAsync().Result;
+
+            IEnumerable<OrderWithCustomerInfoDto> orderWithCustomerInfoDtos = from o in orders
+                                                                              join od in order_Details on o.OrderID equals od.OrderID
+                                                                              join p in products on od.ProductID equals p.ProductID
+                                                                              join c in categories on p.CategoryID equals c.CategoryID
+                                                                              join cus in customers on o.CustomerID equals cus.CustomerID
+                                                                              select new OrderWithCustomerInfoDto
+                                                                              {
+                                                                                  OrderID = od.OrderID,
+                                                                                  OrderDate = o.OrderDate,
+                                                                                  ContactName = cus.ContactName,
+                                                                                  CategoryName = c.CategoryName,
+                                                                                  ProductName = p.ProductName,
+                                                                                  Country = cus.Country,
+                                                                                  City = cus.City,
+                                                                              };
+
+            return orderWithCustomerInfoDtos;
+        }
     }
 }

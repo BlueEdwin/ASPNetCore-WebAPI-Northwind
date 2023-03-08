@@ -14,6 +14,7 @@ namespace WebApi.Controllers.Northwind
             CreateMap<Common.Northwind.Dtos.ProductDto, WebApi.Controllers.Northwind.ProductViewModel>();
             CreateMap<WebApi.Controllers.Northwind.QueryEmployeeParameter, Common.Northwind.Dtos.QueryEmployeeSalesDto>();
             CreateMap<Common.Northwind.Dtos.EmployeeSalesDto, WebApi.Controllers.Northwind.EmployeeSalesViewModel>();
+            CreateMap<Common.Northwind.Dtos.OrderWithCustomerInfoDto, WebApi.Controllers.Northwind.OrderWithCustomerInfoViewModel>();
         }
     }
 }
